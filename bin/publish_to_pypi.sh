@@ -8,7 +8,7 @@ mv .pypirc ~/.pypirc
 
 make clean env
 source env/bin/activate
-"$BASEDIR/env/bin/python" setup.py bdist_wheel upload || exit $?
+env/bin/python setup.py bdist_wheel upload || exit $?
 echo "Wheel should now be online at: https://pypi.python.org/pypi/dcos"
 deactivate
 
@@ -17,6 +17,6 @@ cd cli
 
 make clean env
 source env/bin/activate
-"$BASEDIR/env/bin/python" setup.py bdist_wheel upload || exit $?
+env/bin/python setup.py bdist_wheel upload || exit $?
 echo "Wheel should now be online at: https://pypi.python.org/pypi/dcoscli"
 deactivate
