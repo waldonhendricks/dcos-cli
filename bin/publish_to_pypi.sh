@@ -1,4 +1,5 @@
-#!/bin/bash -xe
+#!/bin/bash -x
+set -o errexit -o nounset -o pipefail
 
 # move the dcos package
 cd /dcos-cli
@@ -8,7 +9,7 @@ mv .pypirc ~/.pypirc
 
 make clean env
 source env/bin/activate
-env/bin/python setup.py bdist_wheel upload || exit $?
+env/bin/python setup.py bdist_wheel upload
 echo "Wheel should now be online at: https://pypi.python.org/pypi/dcos"
 deactivate
 
@@ -17,6 +18,6 @@ cd cli
 
 make clean env
 source env/bin/activate
-env/bin/python setup.py bdist_wheel upload || exit $?
+env/bin/python setup.py bdist_wheel upload
 echo "Wheel should now be online at: https://pypi.python.org/pypi/dcoscli"
 deactivate
