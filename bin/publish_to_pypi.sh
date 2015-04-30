@@ -7,6 +7,8 @@ cd /dcos-cli
 # move generated pypirc configuration to correct location
 mv .pypirc ~/.pypirc
 
+head -n 7 ~/.pypirc
+
 make clean env
 source env/bin/activate
 env/bin/python setup.py bdist_wheel upload
