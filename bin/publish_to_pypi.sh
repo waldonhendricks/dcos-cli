@@ -1,4 +1,4 @@
-#!/bin/bash -e -x
+#!/bin/bash -xe
 
 # move the dcos package
 cd /dcos-cli
