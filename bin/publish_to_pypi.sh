@@ -4,8 +4,8 @@ set -o errexit -o nounset -o pipefail
 # move the dcos package
 cd /dcos-cli
 
-# move generated pypirc configuration to correct location
-mv .pypirc ~/.pypirc
+# copy generated pypirc configuration to correct location
+cp .pypirc ~/.pypirc
 
 head -n 7 ~/.pypirc
 
