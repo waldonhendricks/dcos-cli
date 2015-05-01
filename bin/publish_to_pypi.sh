@@ -1,13 +1,11 @@
 #!/bin/bash -x
-set -o errexit -o nounset -o pipefail
+set -o errexit -o pipefail
 
 # move the dcos package
 cd /dcos-cli
 
 # copy generated pypirc configuration to correct location
 cp .pypirc ~/.pypirc
-
-head -n 7 ~/.pypirc
 
 make clean env
 source env/bin/activate
