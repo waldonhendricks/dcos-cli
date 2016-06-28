@@ -10,7 +10,5 @@ else
         $BASEDIR/env/Scripts/activate
 fi
 
-DCOS_CONFIG=tests/data/dcos.toml
-PATH=$(pwd)/dist:$PATH
-py.test tests/integrations
-deactivate
+pip install pyinstaller==3.1.1
+pyinstaller $BASEDIR/binary/binary.spec

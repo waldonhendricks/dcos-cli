@@ -1,3 +1,4 @@
+import sys
 from codecs import open
 from os import path
 
@@ -9,6 +10,19 @@ here = path.abspath(path.dirname(__file__))
 # Get the long description from the relevant file
 with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
     long_description = f.read()
+
+install_requires = [
+    'dcos=={}'.format(dcoscli.version),
+    'docopt>=0.6, <1.0',
+    'pkginfo==1.2.1',
+    'toml>=0.9, <1.0',
+    'virtualenv>=13.0, <14.0',
+    'rollbar>=0.9, <1.0',
+]
+if sys.version_info[0] == 2:
+    install_requires += [
+        "futures>=3.0, <4.0'"
+    ]
 
 setup(
     name='dcoscli',
@@ -64,15 +78,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=[
-        'dcos=={}'.format(dcoscli.version),
-        'docopt>=0.6, <1.0',
-        'pkginfo==1.2.1',
-        'toml>=0.9, <1.0',
-        'virtualenv>=13.0, <14.0',
-        'rollbar>=0.9, <1.0',
-        'futures>=3.0, <4.0'
-    ],
+    install_requires=install_requires,
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
